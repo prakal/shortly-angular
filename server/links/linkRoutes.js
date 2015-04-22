@@ -13,6 +13,7 @@ module.exports = function (app) {
     .get(linksController.allLinks)
     .post(linksController.newLink);
 
+
   app.get('/:code', linksController.navToLink);
 
 };
