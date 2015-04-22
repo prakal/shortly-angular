@@ -24,12 +24,12 @@ describe('LinksController', function () {
     };
   }));
 
-  xit('should have a data property on the $scope', function() {
+  it('should have a data property on the $scope', function() {
     createController();
     expect($scope.data).to.be.an('object');
   });
 
-  xit('should have a getLinks method on the $scope', function () {
+  it('should have a getLinks method on the $scope', function () {
     createController();
     expect($scope.getLinks).to.be.a('function');
   });
