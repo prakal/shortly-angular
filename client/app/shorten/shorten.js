@@ -5,14 +5,15 @@ angular.module('shortly.shorten', [])
   $scope.data = {};
   $scope.link = {};
   $scope.shorten = function(){
-    console.log(this.url);
     $scope.data.links = this.url;
+    console.log('this.url',$scope.data.links);
+    $location.path('/links');
   };
   // console.log('text is:',$scope);
   $scope.addLink = function(){
     $http.post('/api/links').
       success(function(data){
-        // $scope.data.links = data;
+        $scope.data.links = data;
     });
   };
 });

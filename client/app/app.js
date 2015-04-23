@@ -64,10 +64,11 @@ angular.module('shortly', [
   // if it's not valid, we then redirect back to signin/signup
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
     // make sure user is authorized before sending to links
+    console.log('auth',Auth.isAuth());
     if (!next && Auth.isAuth()){
       $location.path('/links');
     } else {
-      if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
+      if (next.$$route && !Auth.isAuth()) {
         $location.path('/signin');
       }
     }
