@@ -9,7 +9,7 @@ angular.module('shortly.links', [])
         $scope.data.links = data;
       });
 
-    console.log('result is', result);
+    // console.log('result is', result);
     // console.log('called getLinks');
     // $scope.data.links = obj;
     // console.log($scope.data.links);
