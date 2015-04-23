@@ -24,8 +24,8 @@ angular.module('shortly', [
       controller: 'ShortenController'
     })
     .when('/',{
-      templateUrl: 'app/auth/signin.html',
-      controller: 'AuthController'
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
     })
     // Your code here
 
@@ -59,8 +59,12 @@ angular.module('shortly', [
   // and send that token to the server to see if it is a real user or hasn't expired
   // if it's not valid, we then redirect back to signin/signup
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
-    if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
-      $location.path('/signin');
+    if (!next){
+      $location.path('/links');
+    } else {
+      if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
+        $location.path('/signin');
+      }
     }
   });
 });
