@@ -5,7 +5,7 @@ angular.module('shortly.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
-
+  console.log('got to AuthController',$scope);
   $scope.signin = function () {
     Auth.signin($scope.user)
       .then(function (token) {
@@ -26,5 +26,10 @@ angular.module('shortly.auth', [])
       .catch(function (error) {
         console.error(error);
       });
+  };
+  // Auth.signout();
+  $scope.signout = function () {
+    console.log('got to signout in auth');
+    Auth.signout($scope.user);
   };
 });
